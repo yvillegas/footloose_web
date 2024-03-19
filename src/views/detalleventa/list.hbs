@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="row mt-5">
+
+        <h3 class="text-end m-0"> <a href="/detalleventas/add/{{idVenta}}" class="btn btn-dark">AGREGAR</a></h3>
+        <h3 class="text-center text-uppercase p-2">Detalle de Venta</h3>
+
+        <div class="card text-center mx-auto">
+
+            <div class="row p-3">
+                <div class="input-group mt-2 col">
+                    <label for="name" class="input-group-text  bg-white">Fecha</label>
+                    <input class="form-control bg-white" type="date" name="fechaVenta" id="fechaVenta"
+                        value="{{venta.fecha_formateada}}" placeholder="Ejemplo: 12-12-21" autofocus required
+                        disabled="">
+                </div>
+                <div class="input-group mt-2 col">
+                    <label for="name" class="input-group-text  bg-white">Cliente</label>
+                    <input class="form-control bg-white" type="text" name="name" id="name" value="{{venta.name}}"
+                        placeholder="Ejemplo: 12-12-21" autofocus required disabled="">
+                </div>
+                <div class="input-group mt-2 col">
+                    <label for="name" class="input-group-text  bg-white">Total</label>
+                    <input class="form-control bg-white" type="text" name="totalVenta" id="totalVenta"
+                        value="{{venta.totalVenta}}" placeholder="Ejemplo: 100.00" autofocus required disabled
+                        disabled="">
+                </div>
+            </div>
+        </div>
+
+        {{#if detalleventa}}
+        <table class="table text-center" id="example">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-2">
+
+
+            </div>
+            <thead>
+                <tr class="table-light">
+                    <th scope="col">Cantidad</th>
+                    <th scope="col" class="col-4">Producto</th>
+                    <th scope="col">Precio Unitario</th>
+                    <th scope="col">Precio Total</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each detalleventa}}
+                <tr>
+
+                    <td>{{cantidadDetalle}}</td>
+                    <td>{{nombreProducto}}</td>
+                    <td>{{precioDetalle}}</td>
+                    <td>{{preciototal}}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="/detalleventas/edit/{{idVenta}}/{{idDetalle}}" class="btn btn-warning p-2">
+                                <i class="fa-solid fa-pencil"></i></a>
+                            <a href="/detalleventas/delete/{{idVenta}}/{{idDetalle}}"
+                                onclick="return confirm('Seguro que desea eliminar?')" class="btn btn-danger p-2">
+                                <i class="fa-solid fa-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+
+        </table>
+    </div>
+    {{else}}
+    <div class="card text-center mx-auto" style="width: 350px;">
+        <div class="card-body">
+            <a href="/detalleventas/add/{{idVenta}}" class="btn btn-primary">Agregar Producto</a>
+        </div>
+        {{/if}}
+    </div>
+</div>

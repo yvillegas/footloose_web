@@ -1,0 +1,37 @@
+<div class="conatiner p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3 class="text-uppercase">EDITANDO DETALLE</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/detalleventas/edit/{{detalle.idVenta}}/{{detalle.idDetalle}}" method="post">
+                        <div class="input-group mt-2">
+                            <label for="cantidadDetalle" class="input-group-text">Cantidad</label>
+                            <input class="form-control" type="number" name="cantidadDetalle" id="cantidadDetalle"
+                                value="{{detalle.cantidadDetalle}}" placeholder="Ejemplo: 20.00" required>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="idProducto" class="input-group-text">Producto</label>
+                            <select class="form-control" name="idProducto" id="idProducto">
+                                <option value="{{detalle.idProducto}}">{{detalle.nombreProducto}}</option>
+                                {{#each producto}}
+                                <option value="{{idProducto}}">{{nombreProducto}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="precioDetalle" class="input-group-text">Precio unitario</label>
+                            <input class="form-control" type="text" name="precioDetalle" id="precioDetalle"
+                                value="{{detalle.precioDetalle}}" required>
+                        </div>
+                        <div class="form-group mt-4 d-grid gap-2">
+                            <button class="btn btn-success"> Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

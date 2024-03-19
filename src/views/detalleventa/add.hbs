@@ -1,0 +1,36 @@
+<div class="conatiner p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3 class="text-uppercase">AGREGAR PRODUCTO</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/detalleventas/add/{{idVenta}}" method="post">
+                        <div class="input-group mt-2">
+                            <label for="cantidadDetalle" class="input-group-text">Cantidad</label>
+                            <input class="form-control" type="number" name="cantidadDetalle" id="cantidadDetalle"
+                                placeholder="Ejemplo: 20.00" required>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="idProducto" class="input-group-text">Producto</label>
+                            <select class="form-control" name="idProducto" id="idProducto" onchange="addPrice();">
+                                {{#each producto}}
+                                <option value="{{idProducto}}" price="{{precioProducto}}">{{nombreProducto}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="precioDetalle" class="input-group-text">Precio unitario</label>
+                            <input class="form-control" type="text" name="precioDetalle" id="precioDetalle" required>
+                        </div>
+
+                        <div class="form-group mt-4 d-grid gap-2">
+                            <button class="btn btn-success"> Crear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

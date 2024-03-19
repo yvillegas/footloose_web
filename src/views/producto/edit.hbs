@@ -1,0 +1,70 @@
+<div class="conatiner p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3 class="text-uppercase">EDITANDO UNA PERSONA</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/productos/edit/{{producto.idProducto}}" method="post">
+                        <div class="input-group mt-2">
+                            <label for="nombreProducto" class="input-group-text">Nombre</label>
+                            <input class="form-control" type="text" name="nombreProducto" id="nombreProducto"
+                                value="{{producto.nombreProducto}}" placeholder="Ejemplo: Luis Angel" autofocus
+                                required>
+                        </div>
+                        {{!-- <div class="input-group mt-2">
+                            <label for="imagenProducto" class="input-group-text">Imagen</label>
+                            <input class="form-control" type="text" name="imagenProducto" id="imagenProducto"
+                                value="{{producto.imagenProducto}}" required>
+                        </div> --}}
+                        <div class="input-group mt-2">
+                            <label for="precioProducto" class="input-group-text">Precio</label>
+                            <input class="form-control" type="text" name="precioProducto" id="precioProducto"
+                                value="{{producto.precioProducto}}" placeholder="Ejemplo: 20.00" required>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="idMarca" class="input-group-text">Marca</label>
+                            <select class="form-control" name="idMarca" id="idMarca">
+                                <option value="{{producto.idMarca}}">{{producto.nombreMarca}}</option>
+                                {{#each marca}}
+                                <option value="{{idMarca}}">{{nombreMarca}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="idModelo" class="input-group-text">Modelo</label>
+                            <select class="form-control" name="idModelo" id="idModelo">
+                                <option value="{{producto.idModelo}}">{{producto.nombreModelo}}</option>
+                                {{#each modelo}}
+                                <option value="{{idModelo}}">{{nombreModelo}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="idTalla" class="input-group-text">Talla</label>
+                            <select class="form-control" name="idTalla" id="idTalla">
+                                <option value="{{producto.idTalla}}">{{producto.nombreTalla}}</option>
+                                {{#each talla}}
+                                <option value="{{idTalla}}">{{nombreTalla}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="idColor" class="input-group-text">Color</label>
+                            <select class="form-control" name="idColor" id="idColor">
+                                <option value="{{producto.idColor}}">{{producto.nombreColor}}</option>
+                                {{#each color}}
+                                <option value="{{idColor}}">{{nombreColor}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group mt-4 d-grid gap-2">
+                            <button class="btn btn-success"> Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

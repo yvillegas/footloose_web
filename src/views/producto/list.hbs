@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row mt-5">
+
+        <h3 class="text-end m-0"> <a href="/productos/add" class="btn btn-dark">AGREGAR</a></h3>
+        <h3 class="text-center text-uppercase p-2">Lista de productos</h3>
+
+        {{#if producto}}
+        <table class="table text-center" id="example">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-2">
+
+
+            </div>
+            <thead>
+                <tr class="table-light">
+                    <th scope="col">Iamgen</th>
+                    <th scope="col" class="col-4">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Talla</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each producto}}
+                <tr>
+
+                    <td><img width="100" height="100" src="/img/{{imagenProducto}}"></td>
+                    <td>{{nombreProducto}}</td>
+                    <td>{{precioProducto}}</td>
+                    <td>{{nombreMarca}}</td>
+                    <td>{{nombreModelo}}</td>
+                    <td>{{nombreColor}}</td>
+                    <td>{{nombreTalla}}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="/productos/edit/{{idProducto}}" class="btn btn-warning p-2">
+                                <i class="fa-solid fa-pencil"></i></a>
+                            <a href="/productos/delete/{{idProducto}}"
+                                onclick="return confirm('Seguro que desea eliminar?')" class="btn btn-danger p-2">
+                                <i class="fa-solid fa-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+
+        </table>
+    </div>
+    {{else}}
+    <div class="card text-center mx-auto" style="width: 350px;">
+        <div class="card-header">
+            <h3>Debes crear una persona</h3>
+        </div>
+        <div class="card-body">
+            <p>Presiona este boton para que puedas registrar a una persona en la aplicacion</p>
+            <a href="/productos/add" class="btn btn-primary">Ir a crear</a>
+        </div>
+    </div>
+    {{/if}}
+</div>
+</div>
