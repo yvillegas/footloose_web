@@ -22,8 +22,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(
   session({
     secret: "secret",
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
   })
 );
 
