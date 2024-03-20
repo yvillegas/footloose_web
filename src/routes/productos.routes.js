@@ -8,9 +8,9 @@ import {
   showProducto,
 } from "../controllers/productos.controller.js";
 
-// import multer from "multer";
+import multer from "multer";
 
-// const upload = multer({ dest: "./src/public/img/" });
+const upload = multer({ dest: "./src/public/img/" });
 
 const router = Router();
 var auth = function (req, res, next) {
@@ -20,13 +20,13 @@ var auth = function (req, res, next) {
 
 router.get("/productos/add", auth, addProducto);
 
-router.post("/productos/add", saveProducto);
+router.post("/productos/save", upload.single("files"), saveProducto);
 
 router.get("/productos/list", auth, listProducto);
 
 router.get("/productos/edit/:id", auth, showProducto);
 
-router.post("/productos/edit/:id", auth, editProducto);
+router.post("/productos/upload/:id", auth, editProducto);
 
 router.get("/productos/delete/:id", auth, deleteProducto);
 
